@@ -1,0 +1,28 @@
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        if nums.count(0) > 1:
+            return [0] * len(nums)
+        
+        if nums.count(0) == 1:
+            total = 1
+            for num in nums:
+                if num != 0:
+                    total *= num
+            answer = []
+            for num in nums:
+                if num == 0:
+                    answer.append(total)
+                else:
+                    answer.append(0)
+            return answer
+            
+
+        else:
+            total = 1
+            for num in nums:
+                total *= num
+
+            answer = []
+            for num in nums:
+                answer.append(total//num)
+            return answer
